@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>A1 · Order detail – awaiting payment</title>
+<style>
+/* Inter 3.19, the version Figma has. Google Fonts serves Inter 4, which sets text 1-2 % narrower. */
+@import url('https://cdn.jsdelivr.net/npm/@fontsource/inter@4.5.15/400.css');
+@import url('https://cdn.jsdelivr.net/npm/@fontsource/inter@4.5.15/500.css');
+@import url('https://cdn.jsdelivr.net/npm/@fontsource/inter@4.5.15/600.css');
+@import url('https://cdn.jsdelivr.net/npm/@fontsource/inter@4.5.15/700.css');
+/* Tokens: every colour, radius and gap on the page comes from here. */
+:root{--bg:#f3f5f4;--surface:#fff;--ink:#141414;--muted:#6b7370;--line:#e3e7e5;--brand:#0d7a45;--brand-soft:#e6f4ec;--warn:#9a5b00;--warn-soft:#fdf1dc;--danger:#b3261e;--r:12px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#d9dedb;font-family:Inter,system-ui,sans-serif;font-size:15px;line-height:22px;color:var(--ink);-webkit-font-smoothing:antialiased}
+.frame{width:1440px;min-height:900px;background:var(--bg);display:flex}
+.side{width:232px;background:var(--surface);border-right:1px solid var(--line);padding:20px 12px;display:flex;flex-direction:column;gap:2px}
+.logo{font-weight:700;font-size:17px;padding:4px 12px 20px}
+.nav{display:flex;align-items:center;gap:10px;height:38px;padding:0 12px;border-radius:8px;color:var(--muted);font-weight:500}
+.nav.on{background:var(--brand-soft);color:var(--brand)}
+.main{flex:1;padding:24px 40px 48px;display:flex;flex-direction:column;gap:20px}
+.crumb{font-size:13px;line-height:18px;color:var(--muted)}
+.head{display:flex;align-items:center;gap:12px}
+.h1{font-size:26px;line-height:32px;font-weight:700;letter-spacing:-0.2px}
+.pill{display:inline-flex;align-items:center;height:26px;padding:0 10px;border-radius:13px;font-size:13px;line-height:18px;font-weight:600}
+.pill.wait{background:var(--warn-soft);color:var(--warn)}
+.pill.note{background:var(--surface);border:1px solid var(--line);color:var(--muted)}
+.spacer{flex:1}
+.btn{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:10px;font-weight:600;font-size:14px;line-height:20px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+.btn.danger{border-color:transparent;background:transparent;color:var(--danger)}
+.cols{display:flex;gap:20px;align-items:flex-start}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px 24px}
+.grow{flex:1}
+.stack{display:flex;flex-direction:column;gap:20px}
+.aside{width:360px;display:flex;flex-direction:column;gap:20px}
+.h2{font-size:15px;line-height:22px;font-weight:600;margin-bottom:12px}
+.row{display:flex;align-items:center;gap:16px;padding:12px 0;border-top:1px solid var(--line)}
+.row.first{border-top:0;padding-top:0}
+.th{font-size:12px;line-height:16px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.4px}
+.c1{flex:1}.c2{width:180px}.c3{width:110px;text-align:right}
+.num{font-variant-numeric:tabular-nums}
+.sub{font-size:13px;line-height:18px;color:var(--muted)}
+.total{display:flex;justify-content:flex-end;align-items:baseline;gap:16px;padding-top:16px;border-top:1px solid var(--line)}
+.amount{font-size:22px;line-height:28px;font-weight:700}
+.kv{display:flex;justify-content:space-between;gap:16px;padding:6px 0}
+.k{color:var(--muted)}
+.empty{color:var(--muted)}
+.ico{flex:none}
+</style>
+</head>
+<body>
+<div class="frame">
+  <div class="side" data-name="Sidebar">
+    <div class="logo">Kestrel Hire</div>
+    <div class="nav">Overview</div>
+    <div class="nav on">Orders</div>
+    <div class="nav">Customers</div>
+    <div class="nav">Payments</div>
+    <div class="nav">Reports</div>
+  </div>
+  <div class="main">
+    <div class="crumb">Orders / 20418</div>
+    <div class="head">
+      <div class="h1">Order 20418</div>
+      <div class="pill wait">Awaiting payment</div>
+      <div class="pill note">Due in 3 days</div>
+      <div class="spacer"></div>
+      <div class="btn danger">Cancel order</div>
+      <div class="btn">Send reminder</div>
+      <div class="btn primary">
+        <svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        Record payment
+      </div>
+    </div>
+    <div class="cols">
+      <div class="stack grow">
+        <div class="card" data-name="Items">
+        <div class="row first">
+          <div class="th c1">Item</div><div class="th c2">Period</div><div class="th c3">Price</div>
+        </div>
+        <div class="row">
+          <div class="c1"><div>Tile cutter 900 mm</div><div class="sub">Serial TC-0412</div></div>
+          <div class="c2 num">12 – 18 May 2026</div><div class="c3 num">84.00 €</div>
+        </div>
+        <div class="row">
+          <div class="c1"><div>Rotary hammer drill</div><div class="sub">Serial RH-1187</div></div>
+          <div class="c2 num">12 – 18 May 2026</div><div class="c3 num">56.00 €</div>
+        </div>
+        <div class="total"><div class="k">Total</div><div class="amount num">140.00 €</div></div>
+        </div>
+        <div class="card" data-name="Activity">
+          <div class="h2">Activity</div>
+          <div class="row first"><div class="c1">Payment details sent to maya@lindqvist.example</div><div class="sub num">9 May, 10:12</div></div>
+          <div class="row"><div class="c1">Order created by Maya Lindqvist</div><div class="sub num">9 May, 10:11</div></div>
+        </div>
+      </div>
+      <div class="aside">
+        <div class="card" data-name="Customer">
+          <div class="h2">Customer</div>
+          <div class="kv"><div class="k">Name</div><div>Maya Lindqvist</div></div>
+          <div class="kv"><div class="k">Company</div><div>Lindqvist Carpentry</div></div>
+          <div class="kv"><div class="k">Phone</div><div class="num">+46 70 555 01 42</div></div>
+        </div>
+        <div class="card" data-name="Notes">
+          <div class="h2">Notes</div>
+          <div class="kv"><div class="k">From customer</div><div>Pick-up after 4 pm</div></div>
+          <div class="kv"><div class="k">Internal</div><div class="empty">–</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
